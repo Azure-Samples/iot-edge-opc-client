@@ -242,7 +242,7 @@ namespace OpcClient
                                 PrivateKeyBase64String = s;
                             }
                         },
-                        { "pf|privatekeyfile=", $"initial provisioning of the application certificate (with a PEM or PFX fomat) requires a private key passed in as file", (string s) =>
+                        { "pk|privatekeyfile=", $"initial provisioning of the application certificate (with a PEM or PFX fomat) requires a private key passed in as file", (string s) =>
                             {
                                 if (File.Exists(s))
                                 {
@@ -288,7 +288,7 @@ namespace OpcClient
                                 CrlBase64String = s;
                             }
                         },
-                        { "rf|updatecrlfile=", $"update the CRL passed in as file to the corresponding cert store (trusted or trusted issuer)", (string s) =>
+                        { "uc|updatecrlfile=", $"update the CRL passed in as file to the corresponding cert store (trusted or trusted issuer)", (string s) =>
                             {
                                 if (File.Exists(s))
                                 {
