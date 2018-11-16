@@ -124,9 +124,6 @@ namespace OpcClient
             // show certificate store information
             await ShowCertificateStoreInformationAsync();
 
-            // validate the configuration now
-            await ApplicationConfiguration.Validate(ApplicationConfiguration.ApplicationType);
-
             return ApplicationConfiguration;
         }
 

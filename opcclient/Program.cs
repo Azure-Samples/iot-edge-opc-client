@@ -525,19 +525,6 @@ namespace OpcClient
         }
 
         /// <summary>
-        /// Auto trust server certificate validation callback.
-        /// </summary>
-        private static void CertificateValidator_AutoTrustServerCerts(CertificateValidator validator, CertificateValidationEventArgs e)
-        {
-            if (e.Error.StatusCode == StatusCodes.BadCertificateUntrusted)
-            {
-                Logger.Information($"Certificate '{e.Certificate.Subject}' will be trusted, since the autotrustservercerts options was specified.");
-                e.Accept = true;
-                return;
-            }
-        }
-
-        /// <summary>
         /// Handler for server status changes.
         /// </summary>
         private static void ServerEventStatus(Session session, SessionEventReason reason)
