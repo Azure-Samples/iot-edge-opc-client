@@ -12,6 +12,7 @@ namespace OpcClient
     using Opc.Ua;
     using Opc.Ua.Server;
     using Serilog;
+    using System.Diagnostics;
     using System.IO;
     using System.Text;
     using static Diagnostics;
@@ -350,8 +351,9 @@ namespace OpcClient
                     return;
                 }
 
-                // start operation
-                Logger.Information($"{ProgramName} is starting up...");
+                //show version
+                Logger.Information($"{ProgramName} V{FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location).FileVersion} starting up...");
+                Logger.Debug($"Informational version: V{(Attribute.GetCustomAttribute(Assembly.GetEntryAssembly(), typeof(AssemblyInformationalVersionAttribute)) as AssemblyInformationalVersionAttribute).InformationalVersion} starting up...");
 
                 // allow canceling the application
                 var quitEvent = new ManualResetEvent(false);
@@ -497,8 +499,10 @@ namespace OpcClient
         /// </summary>
         private static void Usage(Mono.Options.OptionSet options)
         {
-
             // show usage
+            Logger.Information("");
+            Logger.Information($"{ProgramName} V{FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location).FileVersion}");
+            Logger.Information($"Informational version: V{(Attribute.GetCustomAttribute(Assembly.GetEntryAssembly(), typeof(AssemblyInformationalVersionAttribute)) as AssemblyInformationalVersionAttribute).InformationalVersion} starting up...");
             Logger.Information("");
             Logger.Information("Usage: {0}.exe [<options>]", Assembly.GetEntryAssembly().GetName().Name);
             Logger.Information("");
