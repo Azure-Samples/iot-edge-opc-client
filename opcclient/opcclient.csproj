@@ -6,12 +6,8 @@
     <OutputType>Exe</OutputType>
     <PackageId>OpcClient</PackageId>
     <RuntimeFrameworkVersion>2.1</RuntimeFrameworkVersion>
-    <GenerateAssemblyCompanyAttribute>true</GenerateAssemblyCompanyAttribute>
-    <GenerateAssemblyVersionAttribute>true</GenerateAssemblyVersionAttribute>
-    <Description>This OPC UA client application allows to run actions on OPC UA server applications.</Description>
-    <Company>Microsoft</Company>
-    <Version>2.0</Version>
-	<DebugType>portable</DebugType>
+    <DebugType>portable</DebugType>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
 
   <ItemGroup>
@@ -37,5 +33,9 @@
     <PackageReference Include="Serilog.Sinks.Console" Version="3.1.1" />
     <PackageReference Include="Serilog.Sinks.File" Version="4.0.0" />
   </ItemGroup>
+
+  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+    <Exec Command="gitversion $(SolutionDir)  /updateassemblyinfo /ensureassemblyinfo &gt;nul 2&gt;nul&#xD;&#xA;set ERRORLEVEL=0" />
+  </Target>
 
 </Project>
