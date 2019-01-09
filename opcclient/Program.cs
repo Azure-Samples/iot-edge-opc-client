@@ -509,11 +509,10 @@ namespace OpcClient
             Logger.Information($"{ProgramName} to run actions against OPC UA servers.");
             Logger.Information("To exit the application, just press CTRL-C while it is running.");
             Logger.Information("");
-            Logger.Information("There are a couple of environment variables which can be used to control the application:");
-            Logger.Information("_GW_LOGP: sets the filename of the log file to use");
-            Logger.Information("_TPC_SP: sets the path to store certificates of trusted stations");
-            Logger.Information("");
-            Logger.Information("Command line arguments overrule environment variable settings.");
+            Logger.Information("To specify a list of strings, please use the following format:");
+            Logger.Information("\"<string 1>,<string 2>,...,<string n>\"");
+            Logger.Information("or if one string contains commas:");
+            Logger.Information("\"\"<string 1>\",\"<string 2>\",...,\"<string n>\"\"");
             Logger.Information("");
 
             // output the options
@@ -592,11 +591,6 @@ namespace OpcClient
 
             // set logging sinks
             loggerConfiguration.WriteTo.Console();
-
-            if (!string.IsNullOrEmpty(Environment.GetEnvironmentVariable("_GW_LOGP")))
-            {
-                _logFileName = Environment.GetEnvironmentVariable("_GW_LOGP");
-            }
 
             if (!string.IsNullOrEmpty(_logFileName))
             {
