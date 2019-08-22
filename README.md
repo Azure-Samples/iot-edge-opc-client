@@ -1,3 +1,15 @@
+---
+page_type: sample
+description: "OPC UA client able to run OPC operations on an OPC UA server."
+languages:
+- csharp
+products:
+- azure
+- azure-iot-hub
+- azure-iot-edge
+urlFragment: azure-iot-opc-components
+---
+
 # OPC Client
 OPC UA client able to run OPC operations on an OPC UA server.
 
