@@ -1,6 +1,6 @@
 ---
 page_type: sample
-description: "Industrial IoT - OPC UA client able to run OPC operations on an OPC UA server."
+description: "Industrial IoT - OPC UA client able to run OPC operations on an OPC UA server"
 languages:
 - csharp
 products:
