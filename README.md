@@ -9,7 +9,7 @@ products:
 urlFragment: azure-iot-opc-components
 ---
 
-# OPC Client
+# OPC UA client
 OPC UA client able to run OPC operations on an OPC UA server.
 
 
