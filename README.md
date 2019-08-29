@@ -6,7 +6,7 @@ languages:
 products:
 - azure
 - azure-iot-hub
-urlFragment: azure-iot-opc-components
+urlFragment: azure-iot-opc-client
 ---
 
 # OPC UA client
